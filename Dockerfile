@@ -14,3 +14,9 @@ RUN yes | apt-get install vim
 ENV LD_LIBRARY_PATH=/tree-sitter/TreeSitter
 ENV C_INCLUDE_PATH=/tree-sitter/tree-sitter/lib/include
 ENV CPLUS_INCLUDE_PATH=/tree-sitter/tree-sitter/lib/include
+
+RUN python3 build.py
+
+WORKDIR /tree-sitter/TreeSitter.Test
+RUN dotnet test
+WORKDIR /tree-sitter
