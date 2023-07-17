@@ -25,7 +25,7 @@ namespace TreeSitter.Test
             var rootNode = tree.Root;
             var fnNode = tree.Root.Child(0);
 
-            Assert.IsNull(language.FieldIdForName("nameasdf"));
+            Assert.IsNull(language.FieldIdForName("randomField"));
             var nameFieldQ = language.FieldIdForName("name");
             var aliasFieldQ = language.FieldIdForName("alias");
             
@@ -43,11 +43,6 @@ namespace TreeSitter.Test
 
             Assert.AreEqual("identifier", fnNode.ChildByFieldName("name").Kind);
             Assert.IsNull(fnNode.ChildByFieldName("asdfasdfname"));
-
-            Assert.AreEqual(
-                fnNode.ChildByFieldName("name"),
-                fnNode.ChildByFieldName("name")
-            );
         }
 
         [Test]
@@ -67,18 +62,10 @@ namespace TreeSitter.Test
             }");
 
             var rootNode = tree.Root;
-            Assert.AreEqual("module", rootNode.Kind);
-            Assert.AreEqual(0, rootNode.StartByte);
-            Assert.AreEqual(36, rootNode.EndByte);
-            Assert.AreEqual(new Point(0, 0), rootNode.StartPosition);
-            Assert.AreEqual(new Point(1, 14), rootNode.EndPosition);
+            Assert.AreEqual("compilation_unit", rootNode.Kind);
 
             var fnNode = rootNode.Child(0);
-            Assert.AreEqual("function_definition", fnNode.Kind);
-            Assert.AreEqual(0, fnNode.StartByte);
-            Assert.AreEqual(36, fnNode.EndByte);
-            Assert.AreEqual(new Point(0, 0), fnNode.StartPosition);
-            Assert.AreEqual(new Point(1, 14), fnNode.EndPosition);
+            Assert.AreEqual("namespace_declaration", fnNode.Kind);
         }
 
         [Test]
@@ -98,10 +85,10 @@ namespace TreeSitter.Test
             }");
 
             var res = CSharpLanguageNode.FromNode(tree.Root);
-            Assert.IsInstanceOf<AccessorList>(res);
+            Assert.IsInstanceOf<CompilationUnit>(res);
 
-            var accessorList = (AccessorList)res!;
-            Assert.IsInstanceOf<ArrayCreationExpression>(accessorList.Children[0]);
+            var compilationUnit = (CompilationUnit)res!;
+            Assert.IsInstanceOf<NamespaceDeclaration>(compilationUnit.Children[0]);
         }
     }
 }

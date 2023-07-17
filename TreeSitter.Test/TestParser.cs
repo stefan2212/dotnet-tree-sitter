@@ -9,19 +9,27 @@ namespace TreeSitter.Test
         [Test]
         public void TestSetLanguage()
         {
-            var parser = new Parser
+            var language = CSharpLanguage.Create();
+            var parser = new Parser { Language = language };
+            var tree = parser.Parse(@"
+            namespace HelloWorld
             {
-                Language = CSharpLanguage.Create()
-            };
+                class Hello {
+                    static void Main(string[] args)
+                    {
+                        var a  = 5;
+                    }
+                }
+            }");
 
-            var tree = parser.Parse("def foo():\n  bar()");
-
-            Assert.AreEqual(Trim(@"(module (function_definition
-                name: (identifier)
-                parameters: (parameters)
-                body: (block (expression_statement (call
-                    function: (identifier)
-                    arguments: (argument_list))))))"),
+            Assert.AreEqual(Trim(@"(compilation_unit 
+            (namespace_declaration name: (identifier) body: 
+            (declaration_list (class_declaration name: (identifier) body: 
+            (declaration_list (method_declaration (modifier) type: (predefined_type) name: 
+            (identifier) parameters: (parameter_list (parameter type: (array_type type: 
+            (predefined_type) rank: (array_rank_specifier)) name: (identifier))) body: 
+            (block (local_declaration_statement (variable_declaration type: (implicit_type) (variable_declarator name: 
+            (identifier) (equals_value_clause (integer_literal))))))))))))"),
                             tree.Root.ToString());
         }
 
