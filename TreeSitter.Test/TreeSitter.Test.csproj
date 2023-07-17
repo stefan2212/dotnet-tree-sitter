@@ -1,22 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
 
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="nunit" Version="3.11.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="nunit" Version="3.11.0"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="3.11.0"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TreeSitter.C\TreeSitter.C.csproj" />
-    <ProjectReference Include="..\TreeSitter.JavaScript\TreeSitter.JavaScript.csproj" />
-    <ProjectReference Include="..\TreeSitter.Python\TreeSitter.Python.csproj" />
-    <ProjectReference Include="..\TreeSitter\TreeSitter.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\TreeSitter.CSharp\TreeSitter.CSharp.csproj"/>
+        <ProjectReference Include="..\TreeSitter\TreeSitter.csproj"/>
+    </ItemGroup>
 
 </Project>

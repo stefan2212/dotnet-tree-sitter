@@ -1,0 +1,89 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "TreeSitter/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/TreeSitter.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TreeSitter.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TreeSitter/1.0.0": {
+      "type": "project",
+      "path": "../TreeSitter/TreeSitter.csproj",
+      "msbuildProject": "../TreeSitter/TreeSitter.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "TreeSitter >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/stefancernescu/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/stefancernescu/workspace/tree-s/TreeSitter.CSharp/TreeSitter.CSharp.csproj",
+      "projectName": "TreeSitter.CSharp",
+      "projectPath": "/Users/stefancernescu/workspace/tree-s/TreeSitter.CSharp/TreeSitter.CSharp.csproj",
+      "packagesPath": "/Users/stefancernescu/.nuget/packages/",
+      "outputPath": "/Users/stefancernescu/workspace/tree-s/TreeSitter.CSharp/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/stefancernescu/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "/Users/stefancernescu/workspace/tree-s/TreeSitter/TreeSitter.csproj": {
+              "projectPath": "/Users/stefancernescu/workspace/tree-s/TreeSitter/TreeSitter.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.411/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

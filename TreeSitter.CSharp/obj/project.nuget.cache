@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PIAaAT06qTijYiqHZqKSOYAVxwqk1yRnDE0zEOJyj0D1TQlh30hl9/YiOctO01f3hTmqt2KHdz9TIR5dJeIy6A==",
+  "success": true,
+  "projectFilePath": "/Users/stefancernescu/workspace/tree-s/TreeSitter.CSharp/TreeSitter.CSharp.csproj",
+  "expectedPackageFiles": [
+    "/Users/stefancernescu/.nuget/packages/treesitter/1.0.0/treesitter.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

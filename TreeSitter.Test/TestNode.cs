@@ -1,6 +1,7 @@
+using System.Reflection;
 using NUnit.Framework;
-using TreeSitter.Python;
-using TreeSitter.Python.Nodes;
+using TreeSitter.CSharp;
+using TreeSitter.CSharp.Nodes;
 
 namespace TreeSitter.Test
 {
@@ -9,9 +10,18 @@ namespace TreeSitter.Test
         [Test]
         public void TestChildByFieldId()
         {
-            var language = PythonLanguage.Create();
+            var language = CSharpLanguage.Create();
             var parser = new Parser {Language = language};
-            var tree = parser.Parse("def foo():\n  bar()");
+            var tree = parser.Parse(@"
+            namespace HelloWorld
+            {
+                class Hello {
+                    static void Main(string[] args)
+                    {
+                        var a  = 5;
+                    }
+                }
+            }");
             var rootNode = tree.Root;
             var fnNode = tree.Root.Child(0);
 
@@ -43,12 +53,18 @@ namespace TreeSitter.Test
         [Test]
         public void TestChildren()
         {
-            var language = PythonLanguage.Create();
-            var parser = new Parser
+            var language = CSharpLanguage.Create();
+            var parser = new Parser {Language = language};
+            var tree = parser.Parse(@"
+            namespace HelloWorld
             {
-                Language = language
-            };
-            var tree = parser.Parse("def foo():\n  bar()");
+                class Hello {
+                    static void Main(string[] args)
+                    {
+                        var a  = 5;
+                    }
+                }
+            }");
 
             var rootNode = tree.Root;
             Assert.AreEqual("module", rootNode.Kind);
@@ -68,18 +84,24 @@ namespace TreeSitter.Test
         [Test]
         public void TestNodeConvert()
         {
-            var language = PythonLanguage.Create();
-            var parser = new Parser
+            var language = CSharpLanguage.Create();
+            var parser = new Parser {Language = language};
+            var tree = parser.Parse(@"
+            namespace HelloWorld
             {
-                Language = language
-            };
-            var tree = parser.Parse("def foo():\n  bar()");
+                class Hello {
+                    static void Main(string[] args)
+                    {
+                        var a  = 5;
+                    }
+                }
+            }");
 
-            var res = PythonLanguageNode.FromNode(tree.Root);
-            Assert.IsInstanceOf<Module>(res);
+            var res = CSharpLanguageNode.FromNode(tree.Root);
+            Assert.IsInstanceOf<AccessorList>(res);
 
-            var module = (Module) res!;
-            Assert.IsInstanceOf<FunctionDefinition>(module.Children[0]);
+            var accessorList = (AccessorList)res!;
+            Assert.IsInstanceOf<ArrayCreationExpression>(accessorList.Children[0]);
         }
     }
 }

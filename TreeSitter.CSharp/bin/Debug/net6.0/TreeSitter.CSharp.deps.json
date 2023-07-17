@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TreeSitter.CSharp/1.0.0": {
+        "dependencies": {
+          "TreeSitter": "1.0.0"
+        },
+        "runtime": {
+          "TreeSitter.CSharp.dll": {}
+        }
+      },
+      "TreeSitter/1.0.0": {
+        "runtime": {
+          "TreeSitter.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TreeSitter.CSharp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TreeSitter/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
