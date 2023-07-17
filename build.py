@@ -44,9 +44,7 @@ def build_managed():
 
 def main():
     build_main_lib()
-    build_lang("c", "C", "parser.c")
-    build_lang("javascript", "JavaScript", "parser.c", "scanner.c")
-    build_lang("python", "Python", "parser.c", "scanner.cc")
+    build_lang("c-sharp", "CSharp", "parser.c", "scanner.cc")
     build_managed()
 
 
