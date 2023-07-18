@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  tree-sitter:
+    build: .
+    tty: true
+    stdin_open: true
+    image: tree-sitter
+    volumes:
+      - ".:/tree-sitter"
+volumes:
+    tree-sitter:    

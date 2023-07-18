@@ -1,11 +1,36 @@
 using System.Text.RegularExpressions;
 using NUnit.Framework;
 using TreeSitter.CSharp;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System;
+using TreeSitter.CSharp.Nodes;
+using TreeSitter.Native;
 
 namespace TreeSitter.Test
 {
     public class TestParser
     {
+        [Test]
+        public void Should_Find_Boolean_variable() 
+        {
+            var language = CSharpLanguage.Create();
+            var parser = new Parser { Language = language }; 
+            var tree = parser.Parse(@"
+            namespace HelloWorld
+            {
+                class Hello {
+                    static void Main(string[] args)
+                    {
+                        var a  = true;
+                        var b = 5;
+                        bool c = true;
+                    }
+                }
+            }");
+            Assert.AreEqual(tree, "somestring");
+
+        }
         [Test]
         public void TestSetLanguage()
         {
