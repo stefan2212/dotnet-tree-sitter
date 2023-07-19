@@ -428,7 +428,7 @@ namespace TreeSitter.Native
         #endregion
 
         #region Tree Cursor
-
+        
         [DllImport(DllName)]
         internal static extern TsTreeCursor ts_tree_cursor_new(
             TsNode node

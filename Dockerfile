@@ -10,6 +10,7 @@ RUN apt update
 RUN yes | apt install build-essential
 RUN yes | apt-get install python3
 RUN yes | apt-get install vim
+RUN yes | apt-get install procps
 
 ENV LD_LIBRARY_PATH=/tree-sitter/TreeSitter
 ENV C_INCLUDE_PATH=/tree-sitter/tree-sitter/lib/include
