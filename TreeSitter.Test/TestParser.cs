@@ -102,8 +102,4 @@ namespace TreeSitter.Test
             return Regex.Replace(a, @"\s+", " ");
         }
     }
-
-    internal class Set<T>
-    {
-    }
 }
