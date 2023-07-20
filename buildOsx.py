@@ -23,7 +23,7 @@ def build_lang(native_name, cs_name, *files):
     print(" -- building", native_name, "language support")
     print("    -- building native library")
     native_dir = f"langs-native/tree-sitter-{native_name}/src"
-    dotnet_dir = f"TreeSitter.{cs_name}"
+    dotnet_dir = f"/usr/local/lib.{cs_name}"
     run([
         "gcc",
         "-fPIC",
