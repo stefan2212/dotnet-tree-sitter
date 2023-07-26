@@ -54,7 +54,6 @@ def main():
                "parser.c", "scanner.c")
     build_lang("javascript", "JavaScript", "", "parser.c", "scanner.c")
     build_lang("c-sharp", "CSharp", "", "parser.c", "scanner.c")
-    build_lang("python", "Python", "", "parser.c", "scanner.c")
     build_lang("java", "Java", "", "parser.c")
     build_managed()
 
