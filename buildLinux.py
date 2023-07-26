@@ -1,5 +1,6 @@
 from subprocess import run
 from node_generator import generate
+import os
 
 SO = "so"
 
@@ -19,10 +20,11 @@ def build_main_lib():
     ], check=True)
 
 
-def build_lang(native_name, cs_name, *files):
+def build_lang(native_name, cs_name, additional_path, *files):
     print(" -- building", native_name, "language support")
     print("    -- building native library")
-    native_dir = f"langs-native/tree-sitter-{native_name}/src"
+    native_dir = os.path.join(
+        "langs-native", f"tree-sitter-{native_name}", additional_path, "src")
     dotnet_dir = f"TreeSitter.{cs_name}"
     run([
         "gcc",
@@ -44,7 +46,12 @@ def build_managed():
 
 def main():
     build_main_lib()
-    build_lang("c-sharp", "CSharp", "parser.c", "scanner.c")
+    build_lang("typescript", "TypeScript", "typescript",
+               "parser.c", "scanner.c")
+    build_lang("javascript", "JavaScript", "", "parser.c", "scanner.c")
+    build_lang("c-sharp", "CSharp", "", "parser.c", "scanner.c")
+    build_lang("python", "Python", "", "parser.c", "scanner.c")
+    build_lang("java", "Java", "", "parser.c")
     build_managed()
 
 
