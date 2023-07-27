@@ -37,8 +37,8 @@ def build_lang(native_name, cs_name, additional_path, *files):
     ], check=True)
 
     print("    -- generating support code")
-    generate(f"{native_dir}/node-types.json",
-             f"{dotnet_dir}/Generated.cs", cs_name)
+    # generate(f"{native_dir}/node-types.json",
+    #          f"{dotnet_dir}/Generated.cs", cs_name)
 
 
 def build_managed():
