@@ -16,7 +16,7 @@
 	branch = master
 [submodule "langs-native/tree-sitter-python"]
 	path = langs-native/tree-sitter-python
-	url = https://github.com/tree-sitter/tree-sitter-python
+	url = https://github.com/stefan2212/tree-sitter-python
 	branch = master
 [submodule "langs-native/tree-sitter-java"]
 	path = langs-native/tree-sitter-java

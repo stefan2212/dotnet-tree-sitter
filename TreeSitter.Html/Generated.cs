@@ -17,25 +17,25 @@ namespace TreeSitter.Html.Nodes {
             if (node is null) throw new System.ArgumentNullException(nameof(node));
             if (!node.IsNamed) return new HtmlLanguageNodeTerminalNode(node);
             switch (node.Kind) {
-                case "erroneous_end_tag": return new ErroneousEndTag(node);
-                case "attribute_value": return new AttributeValue(node);
-                case "erroneous_end_tag_name": return new ErroneousEndTagName(node);
                 case "fragment": return new Fragment(node);
-                case "comment": return new Comment(node);
-                case "attribute": return new Attribute(node);
-                case "quoted_attribute_value": return new QuotedAttributeValue(node);
-                case "entity": return new Entity(node);
-                case "element": return new Element(node);
                 case "doctype": return new Doctype(node);
-                case "script_element": return new ScriptElement(node);
-                case "text": return new Text(node);
-                case "start_tag": return new StartTag(node);
-                case "raw_text": return new RawText(node);
                 case "self_closing_tag": return new SelfClosingTag(node);
-                case "tag_name": return new TagName(node);
                 case "style_element": return new StyleElement(node);
+                case "attribute_value": return new AttributeValue(node);
                 case "end_tag": return new EndTag(node);
+                case "erroneous_end_tag_name": return new ErroneousEndTagName(node);
+                case "script_element": return new ScriptElement(node);
+                case "raw_text": return new RawText(node);
+                case "comment": return new Comment(node);
+                case "start_tag": return new StartTag(node);
+                case "text": return new Text(node);
                 case "attribute_name": return new AttributeName(node);
+                case "attribute": return new Attribute(node);
+                case "tag_name": return new TagName(node);
+                case "entity": return new Entity(node);
+                case "quoted_attribute_value": return new QuotedAttributeValue(node);
+                case "element": return new Element(node);
+                case "erroneous_end_tag": return new ErroneousEndTag(node);
                 case "ERROR": return new ErrorNode(node);
                 default: throw new System.ArgumentException("unknown node type: " + node.Kind, nameof(node));
             }
