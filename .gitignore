@@ -5,6 +5,7 @@
 .devcontainer
 .vscode
 __pycache__/
-/TreeSitter.CSharp/obj
-/TreeSitter.CSharp/bin
-/TreeSitter.CSharp/*.so
+
+*/Generated.cs
+*/*.so
+*/*.dll
