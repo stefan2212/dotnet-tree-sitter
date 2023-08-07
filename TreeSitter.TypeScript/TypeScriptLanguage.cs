@@ -9,6 +9,10 @@ namespace TreeSitter.TypeScript
         [DllImport(DllName)]
         private static extern IntPtr tree_sitter_typescript();
 
+        [DllImport(DllName)]
+        private static extern IntPtr tree_sitter_tsx();
+        
         public static Language Create() => new(tree_sitter_typescript());
+        public static Language CreateTsx() => new(tree_sitter_tsx());
     }
 }
