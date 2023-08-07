@@ -33,7 +33,7 @@ def build_lang(native_name, cs_name, additional_path, *files):
         "gcc",
         "-fPIC",
         "-shared",
-        "-o", f"{dotnet_dir}/{get_library_name(native_name, additional_path)}.{DLYB}",
+        "-o", f"{system_lib_dir}/{get_library_name(native_name, additional_path)}.{DLYB}",
         *[f"{native_dir}/{file}" for file in files],
         f"-I{native_name}"
     ], check=True)
