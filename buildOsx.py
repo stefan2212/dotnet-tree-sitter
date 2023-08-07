@@ -33,7 +33,7 @@ def build_lang(native_name, cs_name, additional_path, *files):
         "gcc",
         "-fPIC",
         "-shared",
-        "-o", f"{system_lib_dir}/libtree-sitter-{native_name}.{DLYB}",
+        "-o", f"{dotnet_dir}/{get_library_name(native_name, additional_path)}.{DLYB}",
         *[f"{native_dir}/{file}" for file in files],
         f"-I{native_name}"
     ], check=True)
@@ -42,6 +42,8 @@ def build_lang(native_name, cs_name, additional_path, *files):
     generate(f"{native_dir}/node-types.json",
              f"{dotnet_dir}/Generated.cs", cs_name)
 
+def get_library_name(native_name, additional_path):
+    return f"libtree-sitter-{native_name if additional_path == '' else additional_path}"
 
 def build_managed():
     print(" -- building dotnet libraries")
@@ -50,8 +52,8 @@ def build_managed():
 
 def main():
     build_main_lib()
-    build_lang("typescript", "TypeScript", "typescript",
-               "parser.c", "scanner.c")
+    build_lang("typescript", "TypeScript", "typescript", "parser.c", "scanner.c")
+    build_lang("typescript", "TypeScript", "tsx", "parser.c", "scanner.c")
     build_lang("javascript", "JavaScript", "", "parser.c", "scanner.c")
     build_lang("c-sharp", "CSharp", "", "parser.c", "scanner.c")
     build_lang("python", "Python", "", "parser.c", "scanner.c")
